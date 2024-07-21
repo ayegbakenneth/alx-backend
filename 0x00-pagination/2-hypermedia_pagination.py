@@ -34,16 +34,16 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
-            """A method to validate the input data"""
-            assert isinstance(page, int) and page > o
-            assert isinstance(page_size, int) and page_size > 0
-            dataset = self.dataset()
-            begining_index, end_index = index_range(page, page_size)
+        """A method to validate the input data"""
+        assert isinstance(page, int) and page > o
+        assert isinstance(page_size, int) and page_size > 0
+        dataset = self.dataset()
+        begining_index, end_index = index_range(page, page_size)
 
-            if begining_index >= len(dataset):
-                return []
+        if begining_index >= len(dataset):
+            return []
 
-            return dataset[begining_index:end_index]
+        return dataset[begining_index:end_index]
 
     def get_hyper(self, page=1, page_size=10):
         """" Another method """
