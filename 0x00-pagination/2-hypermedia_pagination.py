@@ -42,21 +42,23 @@ class Server:
 
         if begining_index >= len(dataset):
             return []
-
+        begining_index, end_index = self.index_range(page, page_size)
         return dataset[begining_index:end_index]
 
-    def get_hyper(self, page=1, page_size=10):
-        """" Another method """
-        total_items = len(self.data)
-        total_pages = math.ceil(total_items / page_size)
-        page_data = self.get_page(page, page_size)
+    def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
+        assert isinstance(page, int) and page > 0,
+        assert isinstance(page_size, int) and page_size > 0,
 
-        return {
-            'page_size': len(page_data),
-            'page': page,
-            'data': page_data,
-            'next_page': page + 1 if page < total_pages else None,
-            'prev_page': page - 1 if page > 1 else None,
-            'total_pages': total_pages
+        page_with_dataset = self.get_page(page, page_size)
+        total_pages = math.ceil(len(self.dataset()) / page_size)
+
+        hyper_dict = {
+            "page_size": len(page_with_dataset),
+            "page": page,
+            "data": page_with_dataset,
+            "next_page": page + 1 if page < total_pages else None,
+            "prev_page": page - 1 if page > 1 else None,
+            "total_pages": total_pages
         }
 
+        return hyper_dict
