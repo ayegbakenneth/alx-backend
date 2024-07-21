@@ -33,7 +33,7 @@ class Server:
 
         return self.__dataset
 
-    def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
+    def get_page(self, page = 1, page_size = 10):
         """A method to validate the input data"""
         assert isinstance(page, int) and page > o
         assert isinstance(page_size, int) and page_size > 0
@@ -44,7 +44,7 @@ class Server:
             return []
         return dataset[begining_index:end_index]
 
-    def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
+    def get_hyper(self, page = 1, page_size = 10):
         assert isinstance(page, int) and page > 0,
         assert isinstance(page_size, int) and page_size > 0,
 
