@@ -42,7 +42,6 @@ class Server:
 
         if begining_index >= len(dataset):
             return []
-        begining_index, end_index = self.index_range(page, page_size)
         return dataset[begining_index:end_index]
 
     def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
