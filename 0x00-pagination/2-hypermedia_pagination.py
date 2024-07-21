@@ -9,10 +9,9 @@ import math
 
 def index_range(page: int, page_size: int) -> tuple:
     """ File executable path """
-
-    begining_index = (page - 1) * page_size
-    end_index = begining_index + page_size - 1
-    return begining_index, end_index
+    beginning_index = (page - 1) * page_size
+    end_index = beginning_index + page_size
+    return beginning_index, end_index
 
 
 class Server:
@@ -36,18 +35,19 @@ class Server:
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         """A method to validate the input data"""
-        assert isinstance(page, int) and page > o
-        assert isinstance(page_size, int) and page_size > 0
-        dataset = self.dataset()
-        begining_index, end_index = index_range(page, page_size)
+        assert isinstance(page, int) and page > 0, "Page must be a positive integer."
+        assert isinstance(page_size, int) and page_size > 0, "Page size must be a positive integer."
 
-        if begining_index >= len(dataset):
+        dataset = self.dataset()
+        beginning_index, end_index = index_range(page, page_size)
+
+        if beginning_index >= len(dataset):
             return []
-        return dataset[begining_index:end_index]
+        return dataset[beginning_index:end_index]
 
     def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
-        assert isinstance(page, int) and page > 0,
-        assert isinstance(page_size, int) and page_size > 0,
+        assert isinstance(page, int) and page > 0, "Page must be a positive integer."
+        assert isinstance(page_size, int) and page_size > 0, "Page size must be a positive integer."
 
         page_with_dataset = self.get_page(page, page_size)
         total_pages = math.ceil(len(self.dataset()) / page_size)
