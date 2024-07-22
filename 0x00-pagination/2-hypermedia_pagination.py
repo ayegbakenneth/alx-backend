@@ -33,8 +33,8 @@ class Server:
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         """A method to validate the input data"""
-        assert isinstance(page, int) and page > 0,
-        assert isinstance(page_size, int) and page_size > 0,
+        assert isinstance(page, int) and page > 0
+        assert isinstance(page_size, int) and page_size > 0
 
         dataset = self.dataset()
         beginning_index, end_index = index_range(page, page_size)
@@ -44,8 +44,8 @@ class Server:
         return dataset[beginning_index:end_index]
 
     def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
-        assert isinstance(page, int) and page > 0,
-        assert isinstance(page_size, int) and page_size > 0,
+        assert isinstance(page, int) and page > 0
+        assert isinstance(page_size, int) and page_size > 0
 
         page_with_dataset = self.get_page(page, page_size)
         total_pages = math.ceil(len(self.dataset()) / page_size)
