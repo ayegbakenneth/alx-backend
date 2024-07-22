@@ -3,7 +3,7 @@
 
 import csv
 import math
-from typing import List
+from typing import List, Dict
 """ Importation file path """
 
 
@@ -38,7 +38,7 @@ class Server:
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
         """ A method that return dictionary with key-value pairs """
-        assert index is None or index >= 0,
+        assert index is None or index >= 0
         dataset = self.dataset()
         begining_index = 0 if index is None else index
         end_index = begining_index + page_size
@@ -47,7 +47,7 @@ class Server:
         next_index = end_index if end_index < len(dataset) else None
 
         dict_result = {
-            'index': start_index,
+            'index': begining_index,
             'next_index': next_index,
             'page_size': page_size,
             'data': page
