@@ -11,7 +11,7 @@ def index_range(page, page_size):
     """ File executable path """
 
     begining_index = (page - 1) * page_size
-    end_index = begining_index + page_size
+    end_index = begining_index + page_size - 1
     return begining_index, end_index
 
 
