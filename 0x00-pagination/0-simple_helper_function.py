@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """ This is the file executable path """
 
+
 def index_range(page, page_size):
     """ A function that returns a page and its size as a tuple """
 
