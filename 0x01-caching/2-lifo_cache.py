@@ -23,12 +23,12 @@ class LIFOCache(BaseCaching):
             if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
                 last_item = self.track_list.pop()
                 del self.cache_data[last_item]
-                print(f"DISCARD: {last_item}\n")
+                print("DISCARD:" + " " + last_item)
         self.cache_data[key] = item
         self.track_list.append(key)
 
     def get(self, key):
         """ A method that returns the cache data """
-        return self.cache_data[key]
         if key is None or key not in self.cache_data:
             return None
+        return self.cache_data[key]
