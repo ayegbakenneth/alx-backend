@@ -23,7 +23,7 @@ class LIFOCache(BaseCaching):
             if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
                 last_item = self.track_list.pop()
                 del self.cache_data[last_item]
-                print("DISCARD:" + " " + last_item)
+                print("DISCARD:" + " " + last_item, end = '\n')
         self.cache_data[key] = item
         self.track_list.append(key)
 
