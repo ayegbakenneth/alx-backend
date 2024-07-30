@@ -26,6 +26,7 @@ def get_locale():
 
 @app.route("/")
 def home():
+    """ A method that return the home page. """
     return render_template('2-index.html')
 
 if __name__ = ('__main__'):

@@ -5,8 +5,10 @@ from flask import Flask, render_template
 from flask_babel import Babel
 """ Module importation path """
 
+
 app = Flask(__name__)
 babel = Babel(app)
+
 
 class Config:
     """ A class for the app config """
